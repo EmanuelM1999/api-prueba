@@ -9,6 +9,8 @@ class Ingreso extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['colaborador_id', 'fecha_ingreso'];
+
     //Indica a que tabla apunta el modelo
     protected $table = "ingresos"; 
 
