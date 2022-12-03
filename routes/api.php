@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\ColaboradorController;
 use App\Http\Controllers\IngresoController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TipoIngresoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +26,10 @@ use Illuminate\Support\Facades\Route;
 Route::apiResource("colaborador", ColaboradorController::class)->only(['show', 'index']);
 
 //Ruta encargada del modelo de ingresos
-Route::apiResource("ingreso", IngresoController::class)->only(['store']);
+Route::apiResource("ingreso", IngresoController::class)->only(['store', 'index']);
+
+//Ruta encargada del modelo tipos de ingreso
+Route::apiResource("tipo-ingreso", TipoIngresoController::class)->only(['index']);
+
+//Ruta encargada del login
+Route::post('login', [LoginController::class, "login"]);

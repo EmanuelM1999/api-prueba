@@ -9,7 +9,7 @@ class Ingreso extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['colaborador_id', 'fecha_ingreso'];
+    protected $fillable = ['colaborador_id', 'fecha_ingreso','tipo_ingreso_id'];
 
     //Indica a que tabla apunta el modelo
     protected $table = "ingresos"; 
@@ -17,5 +17,10 @@ class Ingreso extends Model
     //Relacion uno a uno con tabla colaboradores
     public function colaborador(){
         return $this->belongsTo(Colaborador::class);
+    }
+
+    //Relacion uno a uno con tabla tipo ingreso
+    public function tipoIngreso(){
+        return $this->belongsTo(TipoIngreso::class);
     }
 }

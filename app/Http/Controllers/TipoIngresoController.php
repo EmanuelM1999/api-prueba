@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreIngresoRequest;
-use App\Models\Ingreso;
+use App\Models\TipoIngreso;
 use Illuminate\Http\Request;
 
-class IngresoController extends Controller
+class TipoIngresoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,17 @@ class IngresoController extends Controller
      */
     public function index()
     {
-      return Ingreso::with('colaborador','tipoIngreso')->get();
+        return TipoIngreso::all();
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -24,21 +33,9 @@ class IngresoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreIngresoRequest $request)
+    public function store(Request $request)
     {
-        if(Ingreso::whereDate('fecha_ingreso',now())->where('tipo_ingreso_id', $request->tipo_ingreso)->first()){
-            return response()->json(['message' => "Ya se ha registrado el ingreso"], 422);  
-        }
-
-        $ingreso = Ingreso::create([
-            'colaborador_id' => $request->codigo,
-            'tipo_ingreso_id' => $request->tipo_ingreso,
-            'fecha_ingreso' => now()
-        ]);
-
-        $response = Ingreso::where('id', $ingreso->id)->with('colaborador')->first();
-
-        return response()->json($response, 200);
+        //
     }
 
     /**
@@ -48,6 +45,17 @@ class IngresoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
         //
     }
