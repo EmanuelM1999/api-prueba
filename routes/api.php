@@ -16,12 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+/*Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+*/
 
 //Ruta encargada del modelo de colaboradores
-Route::apiResource("colaborador", ColaboradorController::class)->only(['show']);
+Route::apiResource("colaborador", ColaboradorController::class)->only(['show', 'index']);
 
 //Ruta encargada del modelo de ingresos
-Route::apiResource("ingreso", IngresoController::class)->only(['store', 'show']);
+Route::apiResource("ingreso", IngresoController::class)->only(['store']);

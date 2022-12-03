@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Colaborador;
 use Illuminate\Http\Request;
 
 class ColaboradorController extends Controller
@@ -13,7 +14,9 @@ class ColaboradorController extends Controller
      */
     public function index()
     {
-        //
+        $colaborador = Colaborador::with('ingresos')->get();
+
+        return response()->json($colaborador, 200);
     }
 
     /**
@@ -35,7 +38,9 @@ class ColaboradorController extends Controller
      */
     public function show($id)
     {
-        //
+        $colaborador = Colaborador::where('id', $id)->with('ingresos')->get();
+
+        return response()->json($colaborador, 200);
     }
 
     /**
