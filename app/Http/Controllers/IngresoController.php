@@ -26,7 +26,7 @@ class IngresoController extends Controller
      */
     public function store(StoreIngresoRequest $request)
     {
-        if(Ingreso::whereDate('fecha_ingreso',now())->where('tipo_ingreso_id', $request->tipo_ingreso)->first()){
+        if(Ingreso::whereDate('fecha_ingreso',now())->where(['tipo_ingreso_id' => $request->tipo_ingreso, 'colaborador_id' => $request->codigo])->first()){
             return response()->json(['message' => "Ya se ha registrado el ingreso"], 422);  
         }
 
