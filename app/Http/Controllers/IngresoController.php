@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreIngresoRequest;
 use Illuminate\Http\Request;
 
 class IngresoController extends Controller
@@ -22,9 +23,9 @@ class IngresoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreIngresoRequest $request)
     {
-        //
+        
     }
 
     /**
