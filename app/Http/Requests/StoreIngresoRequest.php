@@ -27,4 +27,11 @@ class StoreIngresoRequest extends FormRequest
             'codigo' => 'exists:colaboradores,id'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'codigo.exists' => "Codigo errado: por favor ingrese un codigo interno valido"
+        ];
+    }
 }
