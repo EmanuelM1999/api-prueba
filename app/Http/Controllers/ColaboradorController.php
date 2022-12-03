@@ -14,7 +14,7 @@ class ColaboradorController extends Controller
      */
     public function index()
     {
-        $colaborador = Colaborador::with('ingresos')->get();
+        $colaborador = Colaborador::with('ingresos.tipoIngreso')->get();
 
         return response()->json($colaborador, 200);
     }
