@@ -20,5 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource("colaborador", ColaboradorController::class);
-Route::apiResource("ingreso", IngresoController::class);
+//Ruta encargada del modelo de colaboradores
+Route::apiResource("colaborador", ColaboradorController::class)->only(['show']);
+
+//Ruta encargada del modelo de ingresos
+Route::apiResource("ingreso", IngresoController::class)->only(['store', 'show']);
